@@ -103,14 +103,14 @@ print('Earliest message:', df['timestamp'].min())
 
 ## 6. Map phone numbers to names
 
-In `scripts/clean.py`, update the `PHONE_MAP` dictionary with the exact sender strings from your CSV (often without a leading `+`).
+`scripts/clean.py` loads its sender mapping from `data/phone_map.json` (this file is gitignored, so your real phone numbers never get committed).
 
-Example:
+Create `data/phone_map.json` with the exact sender strings from your CSV (often without a leading `+`):
 
-```python
-PHONE_MAP = {
+```json
+{
     "15555555555": "User1",
-    "16666666666": "User2",
+    "16666666666": "User2"
 }
 ```
 etc.
@@ -193,6 +193,7 @@ The model replies as your chosen target. Type `quit` to end the chat.
 cheesemouse-llm/
 ├── data/
 │   ├── chat.db                  (ignored – your raw database)
+│   ├── phone_map.json           (ignored – your phone number → name mapping)
 │   ├── group_chat.csv
 │   ├── train.jsonl
 │   └── train_data/
@@ -213,7 +214,7 @@ cheesemouse-llm/
 
 ## Privacy and safety
 
-- **Never commit `data/chat.db`** – it contains raw private conversations and is automatically ignored by `.gitignore`.
+- **Never commit `data/chat.db` or `data/phone_map.json`** – they contain raw private conversations and real phone numbers, and are automatically ignored by `.gitignore`.
 - **Never share the adapter weights** (`adapters/peachko/`) – they may leak real names and conversation snippets.
 - Always **inform your group members** before training a model on their messages.
 - Keep the model local – do **not** deploy it as a public bot.

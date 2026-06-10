@@ -1,12 +1,3 @@
-# cheesemouse-llm
-Creating an LLM trained on our fantasy football groupchat data.
-
-# Start virtual environment
-source cheesemouse-venv/bin/activate
-
-Here's the complete markdown file. Copy everything below and save it as `TUTORIAL.md`.
-
-```markdown
 # 🧀 cheesemouse-llm – Full Training Guide
 
 > Fine‑tune an LLM on your iMessage group chat – completely private, on Apple Silicon.
@@ -82,7 +73,7 @@ Look for the list of phone numbers / emails that belong to your group. Note the 
 Open `scripts/extract.py` and set:
 
 ```python
-CHAT_ID = 377   # replace with your actual chat ID
+CHAT_ID = 999   # replace with your actual chat ID
 ```
 
 Run the extraction:

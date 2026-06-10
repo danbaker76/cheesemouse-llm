@@ -1,3 +1,4 @@
 pandas>=2.0.0
 mlx>=0.16.0
 mlx-lm>=0.18.0
+python-dotenv>=1.0.0

@@ -1,19 +1,20 @@
 # scripts/clean.py
+import os
 import pandas as pd
 import json
 from pathlib import Path
+from dotenv import load_dotenv
 
 # ---------- CONFIG ----------
 INPUT_CSV = Path("data/group_chat.csv")
 OUTPUT_JSONL = Path("data/train.jsonl")
-PHONE_MAP_FILE = Path("data/phone_map.json")
 TARGET = "Peachko"                 # who the model will speak as
 CONTEXT_LENGTH = 6                 # how many previous messages to include as user prompt
 # ----------------------------
 
-# 1. Name mapping (kept out of source control, see data/phone_map.json)
-with open(PHONE_MAP_FILE, encoding='utf-8') as f:
-    PHONE_MAP = json.load(f)
+# 1. Name mapping (kept out of source control, see .env)
+load_dotenv()
+PHONE_MAP = json.loads(os.environ["PHONE_MAP"])
 
 # 2. Load data
 df = pd.read_csv(INPUT_CSV)

@@ -1,2 +1,4 @@
 data/chat.db
 data/chat
+data/
+.DS_Store

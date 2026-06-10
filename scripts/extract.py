@@ -3,9 +3,9 @@ import pandas as pd
 from pathlib import Path
 
 # --- Settings ---
-DB_PATH = Path("data/chat.db")          # your copied database
+DB_PATH = Path("data/chat/chat.db")          # your copied database
 OUTPUT_CSV = Path("data/group_chat.csv")
-CHAT_ID = 377                            # the group chat you identified
+CHAT_ID = 1194                           # the group chat you identified
 
 # --- Extraction ---
 conn = sqlite3.connect(str(DB_PATH))

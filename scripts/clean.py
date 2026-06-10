@@ -6,20 +6,14 @@ from pathlib import Path
 # ---------- CONFIG ----------
 INPUT_CSV = Path("data/group_chat.csv")
 OUTPUT_JSONL = Path("data/train.jsonl")
+PHONE_MAP_FILE = Path("data/phone_map.json")
 TARGET = "Peachko"                 # who the model will speak as
 CONTEXT_LENGTH = 6                 # how many previous messages to include as user prompt
 # ----------------------------
 
-# 1. Name mapping
-PHONE_MAP = {
-    "12672619905": "Rico",
-    "12675285039": "Peachko",
-    "12677163870": "Mass",
-    "12679871161": "Catt",
-    "12154352146": "Dank",
-    "12154167966": "LinkedIn",
-    "12673930403": "Baker",
-}
+# 1. Name mapping (kept out of source control, see data/phone_map.json)
+with open(PHONE_MAP_FILE, encoding='utf-8') as f:
+    PHONE_MAP = json.load(f)
 
 # 2. Load data
 df = pd.read_csv(INPUT_CSV)

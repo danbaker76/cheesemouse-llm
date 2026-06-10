@@ -3,3 +3,4 @@ data/chat
 data/
 .DS_Store
 adapters
+.env
